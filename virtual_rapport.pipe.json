@@ -1,0 +1,337 @@
+{
+	Id: "f30c8f4b-67b1-43d1-bac6-f4849179f2e0",
+	Name: "",
+	Description: "",
+	DeliveryPolicy: {
+		InitialQueueSize: 1,
+		MaximumQueueSize: 1,
+		Name: "LatestMessage"
+	},
+	Instances: [
+		{
+			ComponentType: "OpenSense.Components.VirtualRapport.VirtualRapportSystemComponentConfiguration, VirtualRapport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Id: "83010f5f-db6f-4107-8036-a7b8a7a4c72d",
+			Name: "OpenSense.Components.VirtualRapport.VirtualRapportSystem",
+			Description: "",
+			Inputs: [
+				{
+					Id: "bd06842c-c771-4f5b-ae5c-8288ef7d74ee",
+					LocalPort: {
+						Identifier: "HeadGestureIn",
+						Index: null
+					},
+					RemoteId: "e556b4f7-7e98-4d9e-8a61-797e9c64c09b",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				},
+				{
+					Id: "fea1a842-7988-497b-9af5-72abc9304c0b",
+					LocalPort: {
+						Identifier: "SpeechActivityIn",
+						Index: null
+					},
+					RemoteId: "f8ee6827-a852-40e1-b213-404b242ceda8",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				},
+				{
+					Id: "88269b25-840c-4b1c-9dd3-37e61be5c23a",
+					LocalPort: {
+						Identifier: "AcousticFeaturesIn",
+						Index: null
+					},
+					RemoteId: "60b07287-ce7a-48d8-a3f5-91fcc666147d",
+					RemotePort: {
+						Identifier: "Out",
+						Index: "dataSink"
+					},
+					DeliveryPolicy: null
+				}
+			]
+		},
+		{
+			ComponentType: "OpenSense.Components.HeadGesture.HeadGestureDetectorConfiguration, OpenSense.Components.HeadGesture, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Id: "e556b4f7-7e98-4d9e-8a61-797e9c64c09b",
+			Name: "Head Gesture Detector",
+			Description: "",
+			Inputs: [
+				{
+					Id: "833df46e-c3d1-4d7c-b1d9-f10f9e5deefc",
+					LocalPort: {
+						Identifier: "In",
+						Index: null
+					},
+					RemoteId: "1ba0058e-0455-4aba-8b6c-d35335e4e62b",
+					RemotePort: {
+						Identifier: "PoseOut",
+						Index: null
+					},
+					DeliveryPolicy: null
+				}
+			]
+		},
+		{
+			ComponentType: "OpenSense.Components.OpenFace.OpenFaceConfiguration, OpenSense.Components.OpenFace.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Mute: false,
+			FocalLengthX: 1920.0,
+			FocalLengthY: 1080.0,
+			CenterX: 320.0,
+			CenterY: 240.0,
+			AutoAdjustCenter: true,
+			Id: "1ba0058e-0455-4aba-8b6c-d35335e4e62b",
+			Name: "OpenFace",
+			Description: "",
+			Inputs: [
+				{
+					Id: "aa366d4b-20a7-467e-b593-309b90ad4cf8",
+					LocalPort: {
+						Identifier: "In",
+						Index: null
+					},
+					RemoteId: "af89c442-7a3f-4e18-9924-323b1d620385",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				}
+			]
+		},
+		{
+			ComponentType: "OpenSense.Components.Psi.Media.MediaCaptureConfiguration, OpenSense.Components.Psi.Media.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Raw: {
+				CaptureAudio: false,
+				BacklightCompensation: {
+					Value: false,
+					Auto: false
+				},
+				Brightness: {
+					Value: 128,
+					Auto: false
+				},
+				ColorEnable: {
+					Value: false,
+					Auto: false
+				},
+				Contrast: {
+					Value: 128,
+					Auto: false
+				},
+				Gain: {
+					Value: 0,
+					Auto: false
+				},
+				Gamma: {
+					Value: 0,
+					Auto: false
+				},
+				Hue: {
+					Value: 128,
+					Auto: false
+				},
+				Saturation: {
+					Value: 128,
+					Auto: false
+				},
+				Sharpness: {
+					Value: 128,
+					Auto: false
+				},
+				WhiteBalance: {
+					Value: 4500,
+					Auto: true
+				},
+				Focus: {
+					Value: 500,
+					Auto: true
+				},
+				UseInSharedMode: false,
+				Width: 3840,
+				Height: 2160,
+				Framerate: 30.0,
+				DeviceId: "\\\\?\\usb#vid_328f&pid_0093&mi_00#6&2c9b52a5&0&0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\\global"
+			},
+			Id: "af89c442-7a3f-4e18-9924-323b1d620385",
+			Name: "Media Capture",
+			Description: "",
+			Inputs: []
+		},
+		{
+			ComponentType: "OpenSense.Components.Psi.Speech.SystemVoiceActivityDetectorConfiguration, OpenSense.Components.Psi.Speech.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Raw: {
+				Language: "en-us",
+				Grammars: null,
+				BufferLengthInMs: 1000,
+				VoiceActivityStartOffsetMs: -150,
+				VoiceActivityEndOffsetMs: -150,
+				InitialSilenceTimeoutMs: 0,
+				BabbleTimeoutMs: 0,
+				EndSilenceTimeoutMs: 150,
+				EndSilenceTimeoutAmbiguousMs: 500,
+				InputFormat: {
+					FormatTag: "WAVE_FORMAT_PCM",
+					Channels: 1,
+					SamplesPerSec: 16000,
+					AvgBytesPerSec: 32000,
+					BlockAlign: 2,
+					BitsPerSample: 16,
+					ExtraSize: 0
+				}
+			},
+			Id: "f8ee6827-a852-40e1-b213-404b242ceda8",
+			Name: "System Voice Activity Detector",
+			Description: "",
+			Inputs: [
+				{
+					Id: "7632c84c-2ded-4d2a-8467-fb85aed8bed0",
+					LocalPort: {
+						Identifier: "In",
+						Index: null
+					},
+					RemoteId: "44f11f90-404d-4020-86d4-750109a9b48d",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				}
+			]
+		},
+		{
+			ComponentType: "OpenSense.Components.Psi.Audio.AudioCaptureConfiguration, OpenSense.Components.Psi.Audio.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Raw: {
+				DeviceName: "Microphone (EMEET SmartCam C960 4K)",
+				TargetLatencyInMs: 20,
+				AudioEngineBufferInMs: 500,
+				AudioLevel: -1.0,
+				Gain: 1.0,
+				OptimizeForSpeech: false,
+				UseEventDrivenCapture: true,
+				DropOutOfOrderPackets: false,
+				Format: {
+					FormatTag: "WAVE_FORMAT_PCM",
+					Channels: 1,
+					SamplesPerSec: 16000,
+					AvgBytesPerSec: 32000,
+					BlockAlign: 2,
+					BitsPerSample: 16,
+					ExtraSize: 0
+				}
+			},
+			Id: "44f11f90-404d-4020-86d4-750109a9b48d",
+			Name: "Audio Capture",
+			Description: "",
+			Inputs: []
+		},
+		{
+			ComponentType: "OpenSense.Components.OpenSmile.OpenSmileConfiguration, OpenSense.Components.OpenSmile.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			raw: {
+				OverallLogLevel: 0,
+				PrintLogToConsole: false,
+				AppendLogFile: false,
+				LogFilename: "openSMILE.log",
+				PrintLogToFile: false,
+				ConfigurationFilename: "H:\\OpenSense\\Documents\\WPF Application Samples\\5 - openSMILE for signal processing\\openSMILE\\sample2\\opensmile_emobase_live4.conf",
+				UseConfigurationFile: true,
+				InstanceConfigurations: []
+			},
+			Raw: {
+				OverallLogLevel: 0,
+				PrintLogToConsole: false,
+				AppendLogFile: false,
+				LogFilename: "openSMILE.log",
+				PrintLogToFile: false,
+				ConfigurationFilename: "H:\\OpenSense\\Documents\\WPF Application Samples\\5 - openSMILE for signal processing\\openSMILE\\sample2\\opensmile_emobase_live4.conf",
+				UseConfigurationFile: true,
+				InstanceConfigurations: []
+			},
+			Mute: false,
+			Id: "60b07287-ce7a-48d8-a3f5-91fcc666147d",
+			Name: "openSMILE",
+			Description: "",
+			Inputs: [
+				{
+					Id: "7f6ee906-6521-40bf-913c-9d067053fdb0",
+					LocalPort: {
+						Identifier: "In",
+						Index: "waveSource"
+					},
+					RemoteId: "44f11f90-404d-4020-86d4-750109a9b48d",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				}
+			]
+		},
+		{
+			ComponentType: "OpenSense.Components.FurhatController.FurhatComponentConfiguration, FurhatController, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Id: "2f2e28a1-dffa-4f27-a6ce-a4a3974b63b3",
+			Name: "OpenSense.Components.FurhatController.Furhat",
+			Description: "",
+			Inputs: [
+				{
+					Id: "e7e0522c-9154-48ea-b92a-7c99e6f1a1f1",
+					LocalPort: {
+						Identifier: "GestureIn",
+						Index: null
+					},
+					RemoteId: "83010f5f-db6f-4107-8036-a7b8a7a4c72d",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				}
+			]
+		},
+		{
+			ComponentType: "OpenSense.Components.OpenFace.Visualizer.OpenFaceVisualizerConfiguration, OpenSense.WPF.Components.OpenFace.Visualizer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+			Mute: false,
+			CircleRadius: 3,
+			LineThickness: 1,
+			DrawHeadLandmarks: true,
+			DrawHeadIndicatorLines: true,
+			DrawEyeLandmarks: true,
+			DrawEyeIndicatorLines: true,
+			Id: "7ccfdc14-a81f-49ce-90b7-c2d21329e061",
+			Name: "OpenFace Visualizer",
+			Description: "",
+			Inputs: [
+				{
+					Id: "0d4846b2-fceb-4de8-a53a-8fa0c9874d10",
+					LocalPort: {
+						Identifier: "DataIn",
+						Index: null
+					},
+					RemoteId: "1ba0058e-0455-4aba-8b6c-d35335e4e62b",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				},
+				{
+					Id: "9db9d99b-6c45-4282-aba3-a494679bd7d7",
+					LocalPort: {
+						Identifier: "ImageIn",
+						Index: null
+					},
+					RemoteId: "af89c442-7a3f-4e18-9924-323b1d620385",
+					RemotePort: {
+						Identifier: "Out",
+						Index: null
+					},
+					DeliveryPolicy: null
+				}
+			]
+		}
+	]
+}
