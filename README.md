@@ -10,21 +10,21 @@ These are the rules implemented by the Virtual Rapport System:
 
 1. **Lowering of pitch -> head Nod**
 
-Used [OpenSMILE ](https://audeering.github.io/opensmile/get-started.html#default-feature-sets)component to extract feature F0\_sma\_linregc1 (feature 462). The config file used is [emobase\_live4.config](https://github.com/ihp-lab/OpenSense/blob/master/Documents/WPF%20Application%20Samples/5%20-%20openSMILE%20for%20signal%20processing/openSMILE/sample2/opensmile_emobase_live4.conf)  This is the slope of F0. If a pitch within human speech is detected and the slope is lower than a threshold it means the speaker has lowered their pitch, and the robot nods.
+Used [OpenSMILE ](https://audeering.github.io/opensmile/get-started.html#default-feature-sets)component to extract feature F0\_sma\_linregc1 (feature 462). The config file used is [emobase\_live4.config](https://github.com/ihp-lab/OpenSense/blob/master/Documents/WPF%20Application%20Samples/5%20-%20openSMILE%20for%20signal%20processing/openSMILE/sample2/opensmile_emobase_live4.conf)Â  This is the slope of F0. If a pitch within human speech is detected and the slope is lower than a threshold it means the speaker has lowered their pitch, and the robot nods.
 
 1. **Raised loudness -> head Nod**
 
-Similarly, we used the OpenSMILE component to extract feature pcm\_loudness\_sma\_linregc1 (feature 25) to extract the slope of loudness. If it’s higher than a threshold then the robot nods.
+Similarly, we used the OpenSMILE component to extract feature pcm\_loudness\_sma\_linregc1 (feature 25) to extract the slope of loudness. If itâ€™s higher than a threshold then the robot nods.
 
 2. **Speech disfluency -> Gaze shift**
 
-We use the Voice Activity Detector component with a pause length of 3 seconds, meaning that if the speaker is quiet for more than 3 seconds the robot will shift the gaze to signal to the speaker that they can take their time. 
+We use the Voice Activity Detector component with a pause length of 2 seconds, meaning that if the speaker is quiet for more than 3 seconds the robot will shift the gaze to signal to the speaker that they can take their time.Â 
 
-3. **Head nod/head shake -> mimic** 
+3. **Head nod/head shake -> mimic**Â 
 
-We use the Head Gesture Detector with OpenFace to detect and mimic Head Nods and Shakes. 
+We use the Head Gesture Detector with OpenFace to detect and mimic Head Nods and Shakes.Â 
 
-There is a minimum 10 second spacing in between gestures so that the backchannels from Furhat do not become overwhelming or repetitive.
+There is a minimum 5 second spacing in between gestures so that the backchannels from Furhat do not become overwhelming or repetitive.
 
 ## Steps to run
 
@@ -32,12 +32,17 @@ There is a minimum 10 second spacing in between gestures so that the backchannel
 
 - Go to the [Furhat Studio](https://docs.furhat.io/robot/#accessing-the-robot-in-furhat-studio) and activate the Web API button to run the API server.
 
-- Open OpenSense environment and check that the IP address of your Furhat matches that variable `furhatUri = "`[`http://172.16.31.15:54321/furhat`](http://172.16.31.15:54321/furhat)`"` in FurhatController.cs
+- Make sure you have a camera available to OpenSense (computer camera or external webcam).
 
-- Run OpenSense as you would normally. The custom pipeline sample is recommended. Make sure your OpenFace parameters are correctly set according to your webcam parameters.
+- Open OpenSense environment and check that the IP address of your Furhat robot matches that variable `furhatUri` in FurhatController.cs.
+
+- Run OpenSense as you would normally. The custom pipeline sample is recommended. Make sure your OpenFace parameters are correctly set according to your camera parameters.
+
+## Demo
+Access a demonstration video here: https://drive.google.com/drive/folders/1eATIo7hI24wXU18HQSh_lZaBpcScT31d?usp=sharing
 
 ### To improve/ Future work
 
-- Have Furhat’s URI as a parameter in the visual UI instead of hardcoded in the source code.
-
+- Allow Furhatâ€™s URI to be configured as a parameter in the visual UI instead in the source code.
+- Have a hierarchy of what backchannel should be displayed when multiple gestures are detected on the speaker.
 - Implement the detection of speaker gaze shift and mimic.
