@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HeadGesture\HeadGesture.csproj" />
+    <ProjectReference Include="..\OpenFace.Common\OpenFace.Common.csproj" />
+    <ProjectReference Include="..\OpenFace.Windows\OpenFace.Windows.csproj" />
+    <ProjectReference Include="..\OpenSmile.Common\OpenSmile.Common.csproj" />
+    <ProjectReference Include="..\OpenSmile.Windows\OpenSmile.Windows.csproj" />
+    <ProjectReference Include="..\Psi.Audio\Psi.Audio.csproj" />
+  </ItemGroup>
+
+</Project>
